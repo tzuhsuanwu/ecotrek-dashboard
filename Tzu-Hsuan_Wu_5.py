@@ -3,7 +3,10 @@
 # Tzu-Hsuan Wu
 # Purpose: Visualize sentiment counts and word clouds
 # ============================================================
-
+# --------------------------------------------------
+# These libraries help us build the web app,
+# load data, create charts, and generate word clouds.
+# --------------------------------------------------
 import streamlit as st
 import pandas as pd
 import matplotlib.pyplot as plt
@@ -27,6 +30,8 @@ for each sentiment group.
 
 # -------------------------------
 # Load Dataset
+# Load the processed dataset from Assignment 4.
+# This dataset contains review text and sentiment labels.
 # IMPORTANT: change file name below to your processed CSV
 # -------------------------------
 df = pd.read_csv("TzuHsuan_Wu_sentiment.csv")
@@ -52,7 +57,14 @@ else:
 
 
 # -------------------------------
-# Rubric 3A: Sentiment Count Visualization
+# Rubric: Sentiment Count Visualization
+# Count how many reviews fall into each sentiment category.
+# We display the results as a bar chart.
+# Generate three word clouds:
+# one for positive reviews,
+# one for neutral reviews,
+# and one for negative reviews.
+# Word clouds help us see frequently used words.
 # -------------------------------
 st.subheader("Number of Reviews by Sentiment")
 
