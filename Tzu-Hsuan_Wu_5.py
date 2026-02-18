@@ -2,6 +2,9 @@
 # EcoTrek Solutions - Web Dashboard
 # Tzu-Hsuan Wu
 # Purpose: Visualize sentiment counts and word clouds
+# Mini Business Case Study - Sales Analytics for EcoTrek Solutions
+# Assignment 5 - Web Dashboard
+# Option 1: Own Coding using Streamlit
 # ============================================================
 # --------------------------------------------------
 # These libraries help us build the web app,
