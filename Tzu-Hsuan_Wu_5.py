@@ -31,9 +31,25 @@ for each sentiment group.
 # -------------------------------
 df = pd.read_csv("TzuHsuan_Wu_sentiment.csv")
 
-# Make sure text is string
-df["sentiment"] = df["sentiment"].str.lower()
-df["review_text"] = df["review_text"].astype(str)
+# Normalize column names (avoid KeyError: 'sentiment')
+df.columns = df.columns.str.strip().str.lower()
+
+# Normalize required fields safely
+if "sentiment" in df.columns:
+    df["sentiment"] = df["sentiment"].astype(str).str.strip().str.lower()
+else:
+    st.error("Missing column: sentiment. Please check your CSV header.")
+    st.stop()
+
+if "review_text" in df.columns:
+    df["review_text"] = df["review_text"].astype(str)
+elif "review" in df.columns:
+    # fallback in case the column name is different
+    df["review_text"] = df["review"].astype(str)
+else:
+    st.error("Missing column: review_text. Please check your CSV header.")
+    st.stop()
+
 
 # -------------------------------
 # Rubric 3A: Sentiment Count Visualization
